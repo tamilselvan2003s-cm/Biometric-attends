@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.shortcuts import redirect
+from django.views.generic.base import RedirectView
 
 def home_redirect(request):
     if request.user.is_authenticated:
@@ -10,6 +11,7 @@ def home_redirect(request):
     return redirect('accounts:login')
 
 urlpatterns = [
+    path('favicon.ico', RedirectView.as_view(url='/static/images/favicon.ico', permanent=False), name='favicon'),
     path('admin/', admin.site.urls),
     path('', home_redirect, name='home'),
     path('accounts/', include('apps.accounts.urls', namespace='accounts')),
