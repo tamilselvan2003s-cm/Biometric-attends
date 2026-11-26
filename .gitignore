@@ -1,0 +1,13 @@
+# Django system ignore list
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+db.sqlite3
+media/
+staticfiles/
+.idea/
+.vscode/
+*.log
+.git/
